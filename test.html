@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tyar.PK - Coming Soon</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: backgroundSlider 12s infinite;
+      transition: background 1s ease-in-out;
+    }
+
+    @keyframes backgroundSlider {
+      0%   { background-image: url('https://images.pexels.com/photos/25288453/pexels-photo-25288453.jpeg'); }
+      25%  { background-image: url('https://images.pexels.com/photos/29413537/pexels-photo-29413537.jpeg'); }
+      50%  { background-image: url('https://images.pexels.com/photos/28949652/pexels-photo-28949652.jpeg'); }
+      75%  { background-image: url('https://images.pexels.com/photos/19956041/pexels-photo-19956041.jpeg'); }
+      100% { background-image: url('https://images.pexels.com/photos/25288453/pexels-photo-25288453.jpeg'); }
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .loading-bar {
+      width: 200px;
+      height: 10px;
+      background: #fff3;
+      margin: 1rem auto;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .loading-bar::after {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 50%;
+      background: #fff;
+      animation: loadBar 2s infinite;
+    }
+
+    @keyframes loadBar {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+
+    .countdown {
+      font-size: 1.2rem;
+      margin: 20px 0;
+    }
+
+    .subscribe {
+      margin-top: 20px;
+    }
+
+    .subscribe input {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .subscribe button {
+      padding: 10px 15px;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 20px;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    @media(max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+  <script>
+    function updateCountdown() {
+      const launchDate = new Date("2025-11-01T00:00:00").getTime();
+      const now = new Date().getTime();
+      const timeLeft = launchDate - now;
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+      const seconds = Math.floor((timeLeft / 1000) % 60);
+
+      document.getElementById("countdown").innerHTML = 
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    window.onload = updateCountdown;
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="container">
+    <h1>Tyar.PK</h1>
+    <div class="loading-bar"></div>
+    <h2 style="margin-top: 10px;">COMING SOON</h2>
+    <div class="countdown" id="countdown"></div>
+    <div class="subscribe">
+      <input type="email" placeholder="Enter your email">
+      <button>Subscribe</button>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+    </div>
+  </div>
+</body>
+</html>
